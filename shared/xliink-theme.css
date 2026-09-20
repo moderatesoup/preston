@@ -1,0 +1,70 @@
+/* XLiink hero theme — shared engine. Per-profile values come from the vars a profile sets.
+   Verified against the live xli.ink DOM 2026-09-19.
+
+   XLiink ships TWO different photo components and picks one at PAGE LOAD (not via CSS
+   media queries), so a narrow load keeps the banner tree even after the window widens:
+     tree A  .header-image-container > img.xliink-profile-image
+     tree B  .justify-center.py-6 .relative > img
+   Both are styled unconditionally so either one renders the same. Only the blurred
+   backdrop is width-gated, because it is a desktop-only effect. */
+
+:root{
+  --hero-ratio: 4 / 5;      /* taller = more body: 3/4, 2/3 */
+  --hero-max: 520px;
+  --hero-focus: center 30%; /* bigger % = show lower */
+  --hero-fade: linear-gradient(to bottom,#000 60%,rgba(0,0,0,.4) 84%,transparent 100%);
+  --ink: #fff;
+  --page-bg: #000;
+}
+
+/* canvas — html carries the black so body::before can sit above it */
+html{ background: var(--page-bg) !important; }
+body{ background: transparent !important; }
+body *:not(#_){ background-color: transparent !important; color: var(--ink) !important; }
+img, svg, video{ background: none !important; }
+.content-flow, .content-flow *{ text-shadow: 0 2px 16px rgba(0,0,0,.9) !important; }
+
+/* ---------- hero, tree A (banner) ---------- */
+.header-image-container{
+  aspect-ratio: var(--hero-ratio) !important;
+  width:100% !important; max-width: var(--hero-max) !important;
+  margin:0 auto !important; border-radius:0 !important; overflow:hidden !important;
+  -webkit-mask-image: var(--hero-fade) !important;
+          mask-image: var(--hero-fade) !important;
+}
+.xliink-profile-image{
+  width:100% !important; height:100% !important;
+  object-fit:cover !important; object-position: var(--hero-focus) !important;
+}
+
+/* ---------- hero, tree B (card) ---------- */
+.justify-center.py-6{ padding:0 !important; margin:0 !important; }
+.justify-center.py-6 .relative:has(img){
+  width:100% !important; max-width: var(--hero-max) !important;
+  height:auto !important; min-height:0 !important;
+  aspect-ratio: var(--hero-ratio) !important;
+  margin:0 auto !important; border-radius:0 !important;
+  box-shadow:none !important; overflow:hidden !important;
+  -webkit-mask-image: var(--hero-fade) !important;
+          mask-image: var(--hero-fade) !important;
+}
+.justify-center.py-6 .relative:has(img) img{
+  width:100% !important; height:100% !important; aspect-ratio:auto !important;
+  object-fit:cover !important; object-position: var(--hero-focus) !important;
+  border-radius:0 !important;
+}
+
+.content-flow{ margin-top:-2rem !important; position:relative !important; z-index:2 !important; }
+
+/* ---------- desktop only: her photo, blurred, fills the background ---------- */
+@media (min-width:768px){
+  body::before{
+    content:"" !important;
+    position:fixed !important; inset:0 !important; z-index:-1 !important;
+    background: var(--hero) center/cover no-repeat !important;
+    filter:blur(60px) brightness(.55) saturate(1.3) !important;
+    transform:scale(1.2) !important;
+    pointer-events:none !important;
+  }
+  .content-flow{ margin-top:-1.5rem !important; }
+}

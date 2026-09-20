@@ -1,0 +1,10 @@
+Copyright (c) 2026 Aron Riley. All rights reserved.
+
+This repository is published so that browsers can fetch the stylesheet at
+runtime. Publication is not a grant of license.
+
+No permission is given to copy, modify, redistribute, or create derivative
+works from this code, or to use it in any product or service, except by
+written agreement with the copyright holder. Loading the stylesheet from the
+URL published here, on a profile the copyright holder has authorised, is
+permitted for as long as that authorisation stands.
