@@ -1,6 +1,4 @@
-# Per-profile snippets stay local: they carry creator photo URLs and are just
-# the two lines pasted into XLiink's custom CSS field. Only the engine ships.
-elia/
-gemma/
-paris/
-violet/
+.DS_Store
+
+# Everything that is not fetched by a browser lives in the private preston-dev
+# repo: per-profile snippets, landing pages, scope docs.
