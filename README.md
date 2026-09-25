@@ -44,3 +44,11 @@ Both are styled unconditionally, so either load path renders the same. Only the
 blurred backdrop is width-gated, since it is a desktop-only effect.
 
 Verified against the live DOM 2026-09-19.
+
+## Gemma Preston final site
+
+This repo also serves the generated Gemma Preston landing page at the custom domain:
+
+- https://gemmapreston.com/
+
+Private source/generator files remain in `moderatesoup/preston-dev`; this public repo contains only deployable public assets.
