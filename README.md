@@ -45,16 +45,10 @@ blurred backdrop is width-gated, since it is a desktop-only effect.
 
 Verified against the live DOM 2026-09-19.
 
-## Gemma Preston final site
+## This repo never gets a custom domain
 
-This repo also serves the generated Gemma Preston landing page at the custom domain:
-
-- https://gemmapreston.com/
-
-Private source/generator files remain in `moderatesoup/preston-dev`; this public repo contains only deployable public assets.
-
-## Pages
-
-- Gemma: `/` served by GitHub Pages with custom domain `gemmapreston.com`.
-- Paris: `/paris/` contains the Paris landing page artifact generated from `preston-dev`.
-
+Attaching a custom domain to this repo makes GitHub redirect all of
+`moderatesoup.github.io/preston/*` to that domain -- including the stylesheet
+above, which every XLiink profile imports. The theme would then depend on DNS
+someone else controls. Creator landing pages live in their own deploy repos,
+published by `deploy.py` in the private source repo.
