@@ -52,3 +52,9 @@ This repo also serves the generated Gemma Preston landing page at the custom dom
 - https://gemmapreston.com/
 
 Private source/generator files remain in `moderatesoup/preston-dev`; this public repo contains only deployable public assets.
+
+## Pages
+
+- Gemma: `/` served by GitHub Pages with custom domain `gemmapreston.com`.
+- Paris: `/paris/` contains the Paris landing page artifact generated from `preston-dev`.
+
